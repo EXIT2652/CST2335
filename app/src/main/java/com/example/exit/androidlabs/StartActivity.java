@@ -19,6 +19,7 @@ public class StartActivity extends Activity {
         Log.i(ACTIVITY_NAME,"In onCreate()");
 
         final Button button = (Button)findViewById(R.id.button);
+        final Button chatButton = (Button)findViewById(R.id.chatButton);
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
@@ -26,9 +27,18 @@ public class StartActivity extends Activity {
                 startActivityForResult(intent, 10);
             }
         });
+
+        chatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(StartActivity.this,ChatWindow.class);
+                startActivity(intent);
+                Log.i(ACTIVITY_NAME, "User clicked Start Chat");
+            }
+        });
     }
 
-        protected void onActivityResult(int requestCode, int responseCode, Intent data){
+    protected void onActivityResult(int requestCode, int responseCode, Intent data){
         if (requestCode == 10){
             Log.i(ACTIVITY_NAME,"Returned to StartActivity.onActivityResult");
         }
