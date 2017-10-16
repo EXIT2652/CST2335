@@ -17,4 +17,6 @@
     <!---<string name="test222">测试222</string>-->
     <string name="SwitchOn">开关已开</string>
     <string name="SwitchOff">开关已关</string>
+    <string name="StartChat">开始聊天</string>
+    <string name="send">发送</string>
 </resources>
