@@ -1,8 +1,12 @@
 package com.example.exit.androidlabs;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,12 +18,17 @@ import android.widget.ListView;
 import android.widget.TextView;
 import java.util.ArrayList;
 
+import static com.example.exit.androidlabs.ChatDatabaseHelper.KEY_ID;
+import static com.example.exit.androidlabs.ChatDatabaseHelper.KEY_MESSAGE;
+import static com.example.exit.androidlabs.ChatDatabaseHelper.TABLE_NAME;
+
 public class ChatWindow extends Activity {
 
     ListView listView;
     EditText editText;
     Button buttonSend;
     ArrayList<String> chatArray;
+    String ACTIVITY_NAME = "ChatWindow";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,15 +44,25 @@ public class ChatWindow extends Activity {
         final ChatAdapter messageAdapter = new ChatAdapter(this);
         listView.setAdapter(messageAdapter);
 
+        //Create a temporary ChatDatabaseHelper object, which then gets a writeable database
+        ChatDatabaseHelper chatDBHelper = new ChatDatabaseHelper(this);
+        final SQLiteDatabase db = chatDBHelper.getWritableDatabase();
+
+        //Click on Send button to send text
         buttonSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 chatArray.add(editText.getText().toString());
                 messageAdapter.notifyDataSetChanged();//this restarts the process of getCount()/getView()
                 editText.setText("");
+
+                ContentValues insertNewMessage = new ContentValues();
+                insertNewMessage.put(KEY_MESSAGE, editText.getText().toString());
+                db.insert(TABLE_NAME, "", insertNewMessage);
             }
         });
 
+        //Hit Enter key on keyboard to send text
         editText.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View view, int keyCode, KeyEvent event) {
@@ -62,6 +81,26 @@ public class ChatWindow extends Activity {
                 return false;
             }
         });
+
+
+        Cursor cursor = db.query(false, TABLE_NAME, new String[]{KEY_ID, KEY_MESSAGE},
+                null, null, null, null, null, null);
+
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast() ) {
+            Log.i(ACTIVITY_NAME, "SQL MESSAGE:" + cursor.getString(cursor.getColumnIndex(ChatDatabaseHelper.KEY_MESSAGE)));
+
+            chatArray.add(cursor.getString(cursor.getColumnIndex(KEY_MESSAGE)));
+            cursor.moveToNext();
+        }
+        Log.i(ACTIVITY_NAME,"Cursor's column count = " + cursor.getColumnCount());
+
+        cursor.moveToFirst();
+        for(int i=0; i < cursor.getCount(); i++) {
+            Log.i(ACTIVITY_NAME,"The " + i + " row is " + cursor.getString(cursor.getColumnIndex(KEY_MESSAGE)));
+            cursor.moveToNext();
+        }
+
 
     }
 
@@ -93,4 +132,30 @@ public class ChatWindow extends Activity {
             return result;
         }
     }
+
+    protected void onResume(){
+        super.onResume();
+        Log.i(ACTIVITY_NAME, "In onResume()");
+    }
+
+    protected void onStart(){
+        super.onStart();
+        Log.i(ACTIVITY_NAME,"In onStart()");
+    }
+
+    protected void onPause(){
+        super.onPause();
+        Log.i(ACTIVITY_NAME,"In onPause()");
+    }
+
+    protected void onStop(){
+        super.onStop();
+        Log.i(ACTIVITY_NAME,"In onStop()");
+    }
+
+    protected void onDestroy(){
+        super.onDestroy();
+        Log.i(ACTIVITY_NAME,"In onDestroy()");
+    }
+
 }
