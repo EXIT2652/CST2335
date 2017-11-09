@@ -31,7 +31,6 @@ public class ChatWindow extends Activity {
     private EditText editText;
     private Button buttonSend;
     private ArrayList<String> chatArray;
-//    String ACTIVITY_NAME = "ChatWindow";
     private ChatAdapter messageAdapter;
 
     class ChatAdapter extends ArrayAdapter<String>{
@@ -81,11 +80,6 @@ public class ChatWindow extends Activity {
 
         //Create a temporary ChatDatabaseHelper object, which then gets a writeable database
         chatDBHelper = new ChatDatabaseHelper(this);
-
-
-
-
-/*        final SQLiteDatabase db = chatDBHelper.getWritableDatabase();*/
 
         //Click on Send button to send text
         buttonSend.setOnClickListener(new View.OnClickListener() {
