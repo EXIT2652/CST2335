@@ -1,10 +1,8 @@
 package com.example.exit.androidlabs;
 
 import android.app.Activity;
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -18,9 +16,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import java.util.ArrayList;
 
-import static com.example.exit.androidlabs.ChatDatabaseHelper.KEY_ID;
-import static com.example.exit.androidlabs.ChatDatabaseHelper.KEY_MESSAGE;
-import static com.example.exit.androidlabs.ChatDatabaseHelper.TABLE_NAME;
 
 public class ChatWindow extends Activity {
 
@@ -118,22 +113,6 @@ public class ChatWindow extends Activity {
                 return false;
             }
         });
-
-/*        Cursor cursor = chatDBHelper.getRecords();
-        if (cursor.moveToFirst()) {
-            while (!cursor.isAfterLast()) {
-                Log.i(chatWindow, "SQL MESSAGE:" + cursor.getString(cursor.getColumnIndex(ChatDatabaseHelper.KEY_MESSAGE)));
-
-                chatArray.add(cursor.getString(cursor.getColumnIndex(ChatDatabaseHelper.KEY_MESSAGE)));
-                cursor.moveToNext();
-            }
-            Log.i(chatWindow, "Cursor's column count = " + cursor.getColumnCount());
-
-            cursor.moveToFirst();
-            for (int i = 0; i < cursor.getColumnCount(); i++) {
-                Log.i(chatWindow, "The " + i + " row is " + cursor.getColumnName(i));
-            }
-        }*/
     }
 
     private void displaySQL() {
@@ -151,7 +130,6 @@ public class ChatWindow extends Activity {
             for (int i = 0; i < cursor.getColumnCount(); i++) {
                 Log.i(chatWindow, "The " + i + " row is " + cursor.getColumnName(i));
             }
-
     }
 
     protected void onResume(){
