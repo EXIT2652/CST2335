@@ -90,6 +90,7 @@ public class ChatWindow extends Activity {
                     messageAdapter.notifyDataSetChanged();//this restarts the process of getCount()/getView()
 
                     chatDBHelper.insertEntry(editText.getText().toString());
+
                     editText.setText("");
                 }
             }
@@ -107,6 +108,7 @@ public class ChatWindow extends Activity {
                             messageAdapter.notifyDataSetChanged();//this restarts the process of getCount()/getView()
 
                             chatDBHelper.insertEntry(editText.getText().toString());
+
                             editText.setText("");
                             return true;
                         default:

@@ -66,6 +66,7 @@ public class ChatDatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(KEY_MESSAGE, content);
         database.insert(TABLE_NAME, null, values);
+
     }
 
     public void closeDatabase() {
