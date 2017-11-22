@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">实验1</string>
+    <string name="app_name">实验5</string>
     <string name="hello_message">你好世界!</string>
     <string name="ButtonText">我是一个按钮</string>
     <string name="login">登录</string>
@@ -13,8 +13,6 @@
     <string name="dialog_title">警告</string>
     <string name="ok">是</string>
     <string name="cancel">否</string>
-    <!---<string name="test111">测试111</string>-->
-    <!---<string name="test222">测试222</string>-->
     <string name="SwitchOn">开关已开</string>
     <string name="SwitchOff">开关已关</string>
     <string name="StartChat">开始聊天</string>
