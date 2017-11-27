@@ -21,7 +21,6 @@ public class ChatWindow extends Activity {
 
     private ChatDatabaseHelper chatDBHelper;
     private String chatWindow = ChatWindow.class.getSimpleName();
-
     private ListView listView;
     private EditText editText;
     private Button buttonSend;

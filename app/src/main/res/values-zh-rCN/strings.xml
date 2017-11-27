@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">实验5</string>
+    <string name="app_name">实验6</string>
     <string name="hello_message">你好世界!</string>
     <string name="ButtonText">我是一个按钮</string>
     <string name="login">登录</string>
@@ -17,4 +17,8 @@
     <string name="SwitchOff">开关已关</string>
     <string name="StartChat">开始聊天</string>
     <string name="send">发送</string>
+    <string name="WeatherForecast">天气预报</string>
+    <string name="current_temp">当前气温:</string>
+    <string name="min_temp">最低气温:</string>
+    <string name="max_temp">最高气温:</string>
 </resources>

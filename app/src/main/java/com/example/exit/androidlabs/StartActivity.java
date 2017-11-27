@@ -12,6 +12,8 @@ public class StartActivity extends Activity {
 
     protected static final String ACTIVITY_NAME = "StartActivity";
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +22,8 @@ public class StartActivity extends Activity {
 
         final Button button = (Button)findViewById(R.id.button);
         final Button chatButton = (Button)findViewById(R.id.chatButton);
+        final Button weatherButton = (Button) findViewById(R.id.weatherButton);
+
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
@@ -31,9 +35,18 @@ public class StartActivity extends Activity {
         chatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(StartActivity.this,ChatWindow.class);
-                startActivity(intent);
+                Intent chatIntent = new Intent(StartActivity.this,ChatWindow.class);
+                startActivity(chatIntent);
                 Log.i(ACTIVITY_NAME, "User clicked Start Chat");
+            }
+        });
+
+        weatherButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent weatherIntent = new Intent(StartActivity.this, WeatherForecast.class);
+                startActivity(weatherIntent);
+                Log.i(ACTIVITY_NAME, "User clicked Weather Forecast");
             }
         });
     }
