@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Lab6</string>
+    <string name="app_name">Lab7</string>
     <string name="hello_message">Hello World!</string>
     <string name="ButtonText">I\'m a button</string>
     <string name="login">Login</string>
@@ -20,4 +20,7 @@
     <string name="current_temp">Current:</string>
     <string name="min_temp">Minimum:</string>
     <string name="max_temp">Maximum:</string>
+    <string name="delete_message">Delete this message</string>
+    <string name="message_selected_info">Message:</string>
+    <string name="message_selected_id">Message ID:</string>
 </resources>

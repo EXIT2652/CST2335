@@ -23,6 +23,11 @@ public class ChatDatabaseHelper extends SQLiteOpenHelper {
 
     private SQLiteDatabase database;
 
+    public static String[] MESSAGE_FIELDS = new String[] {
+        KEY_ID,
+        KEY_MESSAGE,
+    };
+
     private static final String SQL_CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + " (" +
             KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             KEY_MESSAGE + " TEXT" +
@@ -61,23 +66,21 @@ public class ChatDatabaseHelper extends SQLiteOpenHelper {
         database = this.getWritableDatabase();
     }
 
-
-    public void insertEntry(String content) {
-        ContentValues values = new ContentValues();
-        values.put(KEY_MESSAGE, content);
-        database.insert(TABLE_NAME, null, values);
-
-    }
-
     public void closeDatabase() {
         if(database != null && database.isOpen()){
             database.close();
         }
     }
 
-/*    public void deleteLastItem() {
-        getWritableDatabase().execSQL("DELETE FROM " + TABLE_NAME + " WHERE " + KEY_ID + " = (SELECT MAX(" + KEY_ID + ") FROM " + TABLE_NAME + ")");
-    }*/
+    public void insertEntry(String content) {
+        ContentValues values = new ContentValues();
+        values.put(KEY_MESSAGE, content);
+        database.insert(TABLE_NAME, null, values);
+    }
+
+    public void deleteItem(String id) {
+        this.getWritableDatabase().execSQL("DELETE FROM " + TABLE_NAME + " WHERE " + KEY_ID + " = " + id);
+    }
 
     public Cursor getRecords() {
         return database.query(TABLE_NAME, null, null, null, null, null, null);
