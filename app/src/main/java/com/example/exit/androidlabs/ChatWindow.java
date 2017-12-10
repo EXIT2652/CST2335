@@ -49,11 +49,6 @@ public class ChatWindow extends Activity {
             return chatArray.get(position);
         }
 
-        public long getItemId(int position){
-            cursor.moveToPosition(position);
-            return cursor.getLong(cursor.getColumnIndex(chatDBHelper.KEY_ID));
-        }
-
         public View getView(int position, View convertView, ViewGroup parent){
 
             LayoutInflater inflater = ChatWindow.this.getLayoutInflater();
@@ -67,6 +62,11 @@ public class ChatWindow extends Activity {
             TextView message = (TextView)result.findViewById(R.id.message_text);
             message.setText(getItem(position));//get the string at position
             return result;
+        }
+
+        public long getItemId(int position){
+            cursor.moveToPosition(position);
+            return cursor.getLong(cursor.getColumnIndex(chatDBHelper.KEY_ID));
         }
     }
 
@@ -123,7 +123,7 @@ public class ChatWindow extends Activity {
             }
         });
 
-        //When the user clicks on a message of Chat listview, you should show the details of the message in a fragment.
+        //When the user clicks on a message of Chat listview, shows the details of the message in a fragment.
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
