@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/action_one"
+        android:title="@string/toolbar_one"
+        android:icon="@drawable/ic_toolbar_roofing"
+        android:orderInCategory="101"
+        app:showAsAction="always" />
+
+    <item android:id="@+id/action_two"
+        android:title="@string/toolbar_two"
+        android:icon="@drawable/ic_toolbar_brick"
+        android:orderInCategory="102"
+        app:showAsAction="always" />
+
+
+    <item android:id="@+id/action_three"
+        android:title="@string/toolbar_three"
+        android:icon="@drawable/ic_toolbar_star"
+        android:orderInCategory="103"
+        app:showAsAction="always" />
+
+    <item android:id="@+id/action_four"
+        android:title="@string/toolbar_four"
+        android:orderInCategory="104"
+        app:showAsAction="never" />
+</menu>

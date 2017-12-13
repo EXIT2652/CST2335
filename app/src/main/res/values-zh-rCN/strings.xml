@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">实验7</string>
+    <string name="app_name">实验8</string>
     <string name="hello_message">你好世界!</string>
     <string name="ButtonText">我是一个按钮</string>
     <string name="login">登录</string>
@@ -24,4 +24,12 @@
     <string name="delete_message">删除本条信息</string>
     <string name="message_selected_info">信息内容：</string>
     <string name="message_selected_id">信息ID:</string>
+    <string name="title_activity_test_toolbar">测试工具栏</string>
+    <string name="test_Toolbar">测试工具栏</string>
+    <string name="toolbar_one">一</string>
+    <string name="toolbar_two">二</string>
+    <string name="toolbar_three">三</string>
+    <string name="toolbar_four">关于</string>
+    <string name="version_info">版本1.0, 沈湛</string>
+    <string name="toolbar_dialog">输入新信息</string>
 </resources>

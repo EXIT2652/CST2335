@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Lab7</string>
+    <string name="app_name">Lab8</string>
     <string name="hello_message">Hello World!</string>
     <string name="ButtonText">I\'m a button</string>
     <string name="login">Login</string>
@@ -23,4 +23,14 @@
     <string name="delete_message">Delete this message</string>
     <string name="message_selected_info">Message:</string>
     <string name="message_selected_id">Message ID:</string>
+    <string name="title_activity_test_toolbar">TestToolbar</string>
+    <string name="test_Toolbar">Test Toolbar</string>
+    <string name="toolbar_one">One</string>
+    <string name="toolbar_two">Two</string>
+    <string name="toolbar_three">Three</string>
+    <string name="toolbar_four">About</string>
+    <string name="version_info">Version 1.0, by Zhan Shen</string>
+    <string name="toolbar_dialog">New Message</string>
+    <string name="snackbarMessage">You selected item 1.</string>
+    <string name="toolbarDialogMessage">Do you want to go back?</string>
 </resources>
